@@ -1,5 +1,5 @@
 # UniTrack4D
-# UnityTrack 4D
+# UnityTrack4D (UT4)
 
 Local desktop application for Store Scaler. Premium tier (Tier 2).
 
