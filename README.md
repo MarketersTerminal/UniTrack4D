@@ -1,44 +1,29 @@
 # UniTrack4D
-# UnityTrack4D (UT4)
 
-Local desktop application for Store Scaler. Premium tier (Tier 2).
+Desktop application for Store Scaler vault execution. Visual interface for Claude Code commands.
 
-## What It Is
+## What It Does
 
-UnityTrack 4D is the visual interface for Store Scaler. It runs 100% locally on your machine. No cloud. No server connection. No data leaves your computer.
-
-## Features
-
-- One-click command execution (replaces terminal for non-technical users)
-- Agentic view: see Claude Code working in real time
-- Smart contract viewer: read StoreScalerVerifier and UniTrackPulse directly from the app
-- Vault verification: auto-runs hash.sh on launch and compares against on-chain hash
-- Pulse timeline: view your execution history from UniTrackPulse contract
+- Browse and execute vault commands through a GUI instead of CLI
+- View on-chain verification status (reads StoreScalerVerifier contract)
+- View pulse timeline (reads UniTrackPulse contract)
+- Auto-verify vault hash on update
 
 ## Architecture
 
-UT4 connects to the internet for the same two things as the terminal tier:
-1. Claude Code API calls to Anthropic (your key, your data)
-2. Pulse transactions to Base blockchain (hook key, no API, random wallet + timestamp)
+- 100% local application — no backend, no server, no data collection
+- Reads commands from the local vault (same files Claude Code uses)
+- Executes via Claude Code under the hood
+- Reads contracts via ethers.js (Base RPC only)
 
-No other outbound connections. No MT server. Nothing else.
+## Source Code
 
-## Why the Source Code Is Public
-
-So you can verify there are no hidden endpoints. Clone this repo, read the code, run a packet sniffer. Two destinations only: Anthropic API and Base RPC.
-
-## No Commands Inside
-
-UT4 is the interface, not the product. The commands live in StoreScaler_Private (the vault you purchased). UT4 reads them locally and executes through Claude Code. The IP never enters this repo.
-
-## Requirements
-
-- Store Scaler vault (StoreScaler_Private)
-- Claude Max subscription or Anthropic API key
-- macOS / Windows / Linux
+This repo contains the full source code. Open for audit by anyone.
+No commands are stored in this repo — commands live in the private vault (StoreScaler_Private).
 
 ## Links
 
-- Protocol: github.com/MarketersTerminal/UniTrackProtocol
-- Chain page: unitrackmt.org
-- Product: marketersterminal.com
+- [Store Scaler](https://github.com/MarketersTerminal/StoreScaler) — the product
+- [UniTrack Protocol](https://github.com/MarketersTerminal/UniTrackProtocol) — smart contracts
+- [Marketers Terminal](https://github.com/MarketersTerminal/MarketersTerminal) — organization hub
+- [unitrackmt.org](https://unitrackmt.org) — on-chain verification page
